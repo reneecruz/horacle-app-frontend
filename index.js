@@ -1,6 +1,6 @@
 // index.js
 
-// STATIC DOM ELEMENTS/////////////////////////////////
+// DOM ELEMENTS/////////////////////////////////
 let divClassColumns = document.querySelector(".columns")
 const newHoroBtn = document.querySelector("#new-horo-btn")
 let selectTagVerb = document.createElement("select")
@@ -8,6 +8,8 @@ let selectTagNoun = document.createElement("select")
 let selectTagAdj = document.createElement("select")
 let heroBody = document.querySelector(".hero-body")
 let form = document.createElement("form")
+let madlib = ""
+
 
 // let createLi = document.createElement("li")
 // let createP = document.createElement("p")
@@ -33,24 +35,72 @@ let form = document.createElement("form")
 
      // FORM HANDLER ///////////////////////////////////
 
-    function formHandler(randomTemplate) {
-      form.append(randomTemplate)
+    function formHandler(randomTemplate, id) {
+      let submitBtn = document.createElement("submit")
+      form.dataset.id = id
+      submitBtn.innerHTML = `<input type="submit">`
+      form.append(submitBtn)
+      // form.append(randomTemplate)
       return heroBody.append(form);
     }
 
 
     // REPLACE TEXT HELPER FUNCTION /////////////////////
 
-    const replaceText = (quote, word) => {
-      let select = ``;
-      let uglyReg = new RegExp(word, 'g');
-      let count = (quote.match(uglyReg) || []).length;
-      let template = '';
-      for (let i = 0; i < count; i++) {
-        quote = quote.replace(word, 'SELECT');
-        template = quote;
+    const replaceText = (quote, data) => {
+      madlib = quote
+      let verbCount = (quote.match(new RegExp("VERB", 'g')) || []).length;
+      let nounCount = (quote.match(new RegExp("NOUN", 'g')) || []).length;
+      let adjectiveCount = (quote.match(new RegExp("ADJECTIVE", 'g')) || []).length;
+      //
+      //
+      //
+      //
+      //
+      //
+      //
+      // debugger
+      // let select = ``;
+      let uglyReg = w => new RegExp(w, 'g');
+      // let count = (quote.match(uglyReg) || []).length;
+      // let template = '';
+      // let optionsString = ""
+      // arr.forEach(wordObj => {
+      //   optionsString += `<option>${wordObj.word}</option>`
+      // })
+      // let tag = `<select>${optionsString}<select>`
+      let newQuote = quote
+      console.log(quote);
+      // Verbs
+      let verbOptionsString = ""
+      data.verbs.forEach(wordObj => {
+        verbOptionsString += `<option data-id=${wordObj.id}>${wordObj.word}</option>`
+      })
+      let verbTag = `<select name="verb">${verbOptionsString}<select>`
+      for (let i = 0; i < verbCount; i++) {
+        newQuote = newQuote.replace(uglyReg("VERB"), verbTag);
       }
-      return template;
+      // nouns
+      let nounOptionsString = ""
+      data.nouns.forEach(wordObj => {
+        // nounId = wordObj.id
+        nounOptionsString += `<option data-id=${wordObj.id}>${wordObj.word}</option>`
+      })
+      let nounTag = `<select name="noun">${nounOptionsString}<select>`
+      for (let i = 0; i < nounCount; i++) {
+        newQuote = newQuote.replace(uglyReg("NOUN"), nounTag);
+      }
+      // Adjectives
+      let adjOptionsString = ""
+      data.adjectives.forEach(wordObj => {
+        adjOptionsString += `<option data-id=${wordObj.id}>${wordObj.word}</option>`
+      })
+      let adjTag = `<select name="adjective">${adjOptionsString}<select>`
+      for (let i = 0; i < adjectiveCount; i++) {
+        newQuote = newQuote.replace(uglyReg("ADJECTIVE"), adjTag);
+      }
+
+      return newQuote;
     };
 
     // console.log(replaceText(x, 'NOUN'));
@@ -74,25 +124,86 @@ newHoroBtn.addEventListener("click", function(){
         // console.log(data.verbs);
         // console.log(data.templates);
         // data.adjectives.forEach(handleWord)
-        data.nouns.forEach(noun => handleWord(noun, selectTagNoun))
-        data.verbs.forEach(verb => handleWord(verb, selectTagVerb))
-        data.adjectives.forEach(adj => handleWord(adj, selectTagAdj))
+
+        // data.adjectives.forEach(adjective => {
+        //   quote = random_item(data.template).content
+        //   console.log(replaceText(quote, "ADJECTIVE", data.adjectives, selectTagAdj));
+        // });
+        let template = random_item(data.template)
+        let quote = template.content
+        let templateId = template.id
+
+        form.innerHTML = replaceText(quote, data)
+        // form.innerHTML = replaceText(quote, "NOUN", data.nouns)
+        // form.innerHTML = replaceText(quote, "VERB", data.verbs)
+        // (quote, word, arr, tag)
+
+        // data.nouns.forEach(noun => handleWord(noun, selectTagNoun))
+        // data.verbs.forEach(verb => handleWord(verb, selectTagVerb))
+        // data.adjectives.forEach(adj => handleWord(adj, selectTagAdj))
 
         // quote = random_item(data.template).content
 
-        data.adjectives.forEach(adjective => {
-          quote = random_item(data.template).content
-          console.log(replaceText(quote, adjective));
-        });
+
         // console.table(data.template);
         // console.log(quote);
-        formHandler(quote)
-
+        formHandler(quote, templateId)
 
       });
   });
 
+  form.addEventListener('submit', event => {
+      event.preventDefault();
 
+      let templateId = form.dataset.id
+      let wordBank = [];
+      let wordIds = {};
+      event.target.querySelectorAll('SELECT').forEach(d => {
+
+        let spanTag = document.createElement("span")
+        spanTag.innerText = d.value
+        spanTag.id = d.name
+        let optionTags = d.querySelectorAll('option')
+        for (let optionTag of optionTags) {
+          if (optionTag.innerText === d.value) {
+            wordIds[`${d.name}_id`] = optionTag.dataset.id
+            // spanTag.dataset.id = optionTag.dataset.id
+            break
+          }
+        }
+        // debugger;
+        // spanTag.dataset.id = d.value.dataset.id
+        // console.log(d);
+
+        form.replaceChild(spanTag, d)
+        wordBank.push( {[d.name]: d.value });
+      })
+      // console.log(form.innerText)
+      // console.log(wordBank);
+
+
+
+  // POST FETCH CREATE NEW HOROSCOPE //////////////////////
+
+  fetch('http://localhost:3000/horoscopes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        ...wordIds,
+        'template_id': templateId
+
+      })
+    })
+    .then(res => res.json())
+    .then((obj_new_horo) => {
+      console.log(obj_new_horo);
+    })
+// }
+
+})
   // INITIAL FETCH TO EXTERNAL API ///////////////////////
 
     fetch("https://www.horoscopes-and-astrology.com/json")
