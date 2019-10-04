@@ -1,10 +1,19 @@
 /* #cards {
   column-count: 3;
 } */
-marquee {
-  font-size: 100px;
-  color: pink;
+/* .hero-body {
+  background-color: black;
+} */
+
+h1.title {
+  font-size: 44px;
+  color: hotpink;
 }
+
+/* p.subtitle {
+  font-size: 27px;
+  color: hotpink;
+} */
 
 .new-horo-h1 {
   font-size: 88px;
@@ -18,4 +27,24 @@ marquee {
 
 button {
   background-color: yellow;
+  margin: auto;
 }
+
+#new-horo-btn {
+  background-color: pink;
+  margin: auto;
+
+}
+
+form {
+  font-size: 44px;
+  font-weight: bold;
+}
+
+select {
+  font-size: 44px;
+}
+
+/* span {
+  font-size: 66px;
+} */
