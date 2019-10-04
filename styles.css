@@ -10,6 +10,11 @@ h1.title {
   color: hotpink;
 }
 
+.crystal {
+  border-radius: 80%;
+  margin: auto;
+}
+
 /* p.subtitle {
   font-size: 27px;
   color: hotpink;
@@ -33,7 +38,7 @@ button {
 #new-horo-btn {
   background-color: pink;
   margin: auto;
-
+  font-weight: bold;
 }
 
 form {
