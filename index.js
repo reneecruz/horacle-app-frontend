@@ -211,11 +211,43 @@ newHoroBtn.addEventListener("click", function(){
       newerHoroH1.setAttribute("class", "new-horo-h1")
       heroBody.append(newerHoroH1)
       const delButton = document.createElement("button")
+      const reverseButton = document.createElement("button")
+      reverseButton.innerText = "Reverse"
+      console.log(reverseButton);
       delButton.innerText = "Delete"
       delButton.addEventListener("click", e => {
         newerHoroH1.remove()
+
         fetch(`http://localhost:3000/horoscopes/${obj_new_horo.id}`, {method: "DELETE"})
         delButton.remove()
+      })
+      heroBody.append(reverseButton)
+
+      reverseButton.addEventListener("click", e => {
+        console.log(event.target.dataset.id);
+        horoText = event.target.innerText
+        revString = horoText.split('').reverse().join('')
+
+        fetch(`http://localhost:3000/templates/${event.target.dataset.id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            text: revString
+          })
+        })
+        .then(res => res.json())
+        .then(data => {
+          let revStringDiv = document.createElement("div")
+          let revStringP = document.createElement("p")
+          revStringDiv.setAttribute("class", "new-horo-h1")
+          revStringP.innerText = revString
+          revStringDiv.append(revStringP)
+
+          heroBody.append(revStringDiv)
+        })
+
       })
       heroBody.append(delButton)
     })

@@ -1,9 +1,17 @@
 /* #cards {
   column-count: 3;
 } */
-/* .hero-body {
+.hero-body {
   background-color: black;
-} */
+}
+
+submit {
+  font-size: 44px;
+}
+
+.section {
+  background-color: black;
+}
 
 h1.title {
   font-size: 44px;
@@ -13,6 +21,16 @@ h1.title {
 .crystal {
   border-radius: 80%;
   margin: auto;
+  border: 5px solid purple;
+  opacity: .5;
+   transition: opacity .5s ease-out;
+   -moz-transition: opacity .5s ease-out;
+   -webkit-transition: opacity .5s ease-out;
+   -o-transition: opacity .5s ease-out;
+}
+
+.crystal:hover {
+  opacity: 1;
 }
 
 /* p.subtitle {
@@ -21,7 +39,7 @@ h1.title {
 } */
 
 .new-horo-h1 {
-  font-size: 88px;
+  font-size: 77px;
   color: hotpink;
   font-weight: bold;
   font-style: italic;
@@ -44,11 +62,13 @@ button {
 form {
   font-size: 44px;
   font-weight: bold;
+  padding: 33px;
 }
 
 select {
   font-size: 44px;
 }
+
 
 /* span {
   font-size: 66px;
