@@ -15,3 +15,7 @@ marquee {
   line-height: normal;
   background-color: black;
 }
+
+button {
+  background-color: yellow;
+}

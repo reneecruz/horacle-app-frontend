@@ -201,7 +201,7 @@ newHoroBtn.addEventListener("click", function(){
     })
     .then(res => res.json())
     .then((obj_new_horo) => {
-
+      form.remove()
       console.log(obj_new_horo);
       console.log(obj_new_horo.text);
 
