@@ -9,6 +9,10 @@ let selectTagAdj = document.createElement("select")
 let heroBody = document.querySelector(".hero-body")
 let form = document.createElement("form")
 let madlib = ""
+let newHoroH1 = document.createElement("h1")
+let newHoroUl = document.createElement("ul")
+let newHoroLi = document.createElement("li")
+let newHoroSection = document.querySelector("section")
 
 
 // let createLi = document.createElement("li")
@@ -111,7 +115,7 @@ let madlib = ""
 
 newHoroBtn.addEventListener("click", function(){
   // console.log("Hiii from the button");
-  newHoroBtn.remove()
+  // newHoroBtn.remove()
 
 
   fetch("http://localhost:3000/data")
@@ -181,8 +185,6 @@ newHoroBtn.addEventListener("click", function(){
       // console.log(form.innerText)
       // console.log(wordBank);
 
-
-
   // POST FETCH CREATE NEW HOROSCOPE //////////////////////
 
   fetch('http://localhost:3000/horoscopes', {
@@ -199,9 +201,35 @@ newHoroBtn.addEventListener("click", function(){
     })
     .then(res => res.json())
     .then((obj_new_horo) => {
+
       console.log(obj_new_horo);
+      console.log(obj_new_horo.text);
+
+      const newHoroText = obj_new_horo.text
+      const newerHoroH1 = document.createElement("h1")
+      newerHoroH1.innerText = newHoroText
+      newerHoroH1.setAttribute("class", "new-horo-h1")
+      heroBody.append(newerHoroH1)
+      const delButton = document.createElement("button")
+      delButton.innerText = "Delete"
+      delButton.addEventListener("click", e => {
+        newerHoroH1.remove()
+        fetch(`http://localhost:3000/horoscopes/${obj_new_horo.id}`, {method: "DELETE"})
+        delButton.remove()
+      })
+      heroBody.append(delButton)
     })
 // }
+
+
+// DELETE REQUEST FETCH ////////////////////////////////
+
+// fetch(`/horoscopes/${id}`, {method: 'DELETE'})
+//     .then(res => res.json())
+//     .then(res => {
+//       console.log('Deleted:', res.message)
+//       return res
+//     })
 
 })
   // INITIAL FETCH TO EXTERNAL API ///////////////////////
@@ -247,3 +275,26 @@ newHoroBtn.addEventListener("click", function(){
           });
         }
     });
+
+    fetch("http://localhost:3000/horoscopes")
+      .then(response => response.json())
+      .then(horoscopes => {
+        // debugger
+        const newHoroText = horoscopes[horoscopes.length - 1].text
+        const newerHoroH1 = document.createElement("h1")
+        newerHoroH1.innerText = newHoroText
+        newerHoroH1.setAttribute("class", "new-horo-h1")
+        newerHoroH1.dataset.id = horoscopes[horoscopes.length - 1].id
+        heroBody.append(newerHoroH1)
+        const delButton = document.createElement("button")
+        delButton.innerText = "Delete"
+        delButton.dataset.id = horoscopes[horoscopes.length - 1].id
+        delButton.addEventListener("click", e => {
+          newerHoroH1.remove()
+          fetch(`http://localhost:3000/horoscopes/${delButton.dataset.id}`, {
+            method: "DELETE"
+          })
+          delButton.remove()
+        })
+        heroBody.append(delButton)
+      })

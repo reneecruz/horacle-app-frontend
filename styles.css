@@ -1,3 +1,17 @@
 /* #cards {
   column-count: 3;
 } */
+marquee {
+  font-size: 100px;
+  color: pink;
+}
+
+.new-horo-h1 {
+  font-size: 88px;
+  color: hotpink;
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  line-height: normal;
+  background-color: black;
+}
