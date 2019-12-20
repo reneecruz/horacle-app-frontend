@@ -1,5 +1,8 @@
 // index.js
 
+// BASE URL
+// const BASE_URL = "https://horacle-backend.herokuapp.com/"
+
 // DOM ELEMENTS/////////////////////////////////
 let divClassColumns = document.querySelector(".columns")
 const newHoroBtn = document.querySelector("#new-horo-btn")
@@ -87,7 +90,7 @@ let newHoroSection = document.querySelector("section")
       // nouns
       let nounOptionsString = ""
       data.nouns.forEach(wordObj => {
-        // nounId = wordObj.id
+      // nounId = wordObj.id
         nounOptionsString += `<option data-id=${wordObj.id}>${wordObj.word}</option>`
       })
       let nounTag = `<select name="noun">${nounOptionsString}<select>`
@@ -118,7 +121,7 @@ newHoroBtn.addEventListener("click", function(){
   // newHoroBtn.remove()
 
 
-  fetch("http://localhost:3000/data")
+  fetch("https://horacle-backend.herokuapp.com/data") 
     .then(res => res.json())
     .then(data => {
       // for (const prop in data) {
@@ -187,7 +190,7 @@ newHoroBtn.addEventListener("click", function(){
 
   // POST FETCH CREATE NEW HOROSCOPE //////////////////////
 
-  fetch('http://localhost:3000/horoscopes', {
+  fetch("https://horacle-backend.herokuapp.com/horoscopes", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -218,7 +221,7 @@ newHoroBtn.addEventListener("click", function(){
       delButton.addEventListener("click", e => {
         newerHoroH1.remove()
 
-        fetch(`http://localhost:3000/horoscopes/${obj_new_horo.id}`, {method: "DELETE"})
+        fetch(`https://horacle-backend.herokuapp.com/horoscopes/${obj_new_horo.id}`, {method: "DELETE"})
         delButton.remove()
       })
       heroBody.append(reverseButton)
@@ -228,7 +231,7 @@ newHoroBtn.addEventListener("click", function(){
         horoText = event.target.innerText
         revString = horoText.split('').reverse().join('')
 
-        fetch(`http://localhost:3000/templates/${event.target.dataset.id}`, {
+        fetch(`https://horacle-backend.herokuapp.com/templates/${event.target.dataset.id}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json'
@@ -308,7 +311,7 @@ newHoroBtn.addEventListener("click", function(){
         }
     });
 
-    fetch("http://localhost:3000/horoscopes")
+    fetch("https://horacle-backend.herokuapp.com/horoscopes")
       .then(response => response.json())
       .then(horoscopes => {
         // debugger
@@ -323,7 +326,7 @@ newHoroBtn.addEventListener("click", function(){
         delButton.dataset.id = horoscopes[horoscopes.length - 1].id
         delButton.addEventListener("click", e => {
           newerHoroH1.remove()
-          fetch(`http://localhost:3000/horoscopes/${delButton.dataset.id}`, {
+          fetch(`https://horacle-backend.herokuapp.com/horoscopes/${delButton.dataset.id}`, {
             method: "DELETE"
           })
           delButton.remove()

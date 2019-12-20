@@ -18,6 +18,10 @@ h1.title {
   color: hotpink;
 }
 
+h1.subtitle {
+  color: #D3D3D3;
+}
+
 .crystal {
   border-radius: 80%;
   margin: auto;
