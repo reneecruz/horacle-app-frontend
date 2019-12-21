@@ -1,6 +1,4 @@
-/* #cards {
-  column-count: 3;
-} */
+
 .hero-body {
   background-color: black;
 }
@@ -37,10 +35,6 @@ h1.subtitle {
   opacity: 1;
 }
 
-/* p.subtitle {
-  font-size: 27px;
-  color: hotpink;
-} */
 
 .new-horo-h1 {
   font-size: 77px;
@@ -50,6 +44,7 @@ h1.subtitle {
   text-align: center;
   line-height: normal;
   background-color: black;
+
 }
 
 button {
@@ -58,9 +53,13 @@ button {
 }
 
 #new-horo-btn {
-  background-color: pink;
+  background-color: hotpink;
   margin: auto;
   font-weight: bold;
+}
+
+#new-horo-btn:hover {
+  opacity: .5;
 }
 
 form {
@@ -73,7 +72,6 @@ select {
   font-size: 44px;
 }
 
-
-/* span {
-  font-size: 66px;
-} */
+.tile {
+  flex-wrap: wrap
+}

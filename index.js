@@ -4,7 +4,7 @@
 // const BASE_URL = "https://horacle-backend.herokuapp.com/"
 
 // DOM ELEMENTS/////////////////////////////////
-let divClassColumns = document.querySelector(".columns")
+let divClassTile = document.querySelector(".is-ancestor")
 const newHoroBtn = document.querySelector("#new-horo-btn")
 let selectTagVerb = document.createElement("select")
 let selectTagNoun = document.createElement("select")
@@ -278,33 +278,15 @@ newHoroBtn.addEventListener("click", function(){
           // console.log(data.dailyhoroscope)
             data.titles.forEach(title => {
             // console.log(data.dates[title]);
-            newHoro = divClassColumns.innerHTML += `
-              <div class="column is-one-third">
-              <div class="card">
-                <div class="card-content">
-                  <h2 class="title">${title}</h2>
-                  <h3 class="subtitle">${data.dates[title]}</h2>
+            newHoro = divClassTile.innerHTML += `
+              <div class="tile is-parent is-4 is-vertical">
+              <article class="tile is-child box">
+                  <p class="title">${title}</p>
+                  <p class="subtitle">${data.dates[title]}</p>
+                  <div class="content">
                   <p>${data.dailyhoroscope[title]}</p>
-                </div>
-                <footer class="card-footer">
-                  <div class="card-footer-item">
-                    <a href="#" class="button is-success">
-                      <i class="fa fa-thumbs-o-up"></i>
-                    </a>
                   </div>
-                  <div class="card-footer-item">
-                    <a href="#" class="button is-danger">
-                      <i class="fa fa-thumbs-o-down"></i>
-                    </a>
-                  </div>
-                  <div class="card-footer-item">
-                    <a href="#" class="button is-info">
-                      <i class="fa fa-retweet"></i>
-                    </a>
-                  </div>
-                </footer>
-              </div>
-              </div>
+              </article>
             </div>
               `
           });
