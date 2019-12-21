@@ -1,14 +1,15 @@
 
 .hero-body {
-  background-color: black;
+background-color: whitesmoke;
 }
 
-submit {
-  font-size: 44px;
-}
 
-.section {
+/* .section {
   background-color: black;
+} */
+
+.welcome {
+  min-height: 100vh;
 }
 
 h1.title {
@@ -29,6 +30,7 @@ h1.subtitle {
    -moz-transition: opacity .5s ease-out;
    -webkit-transition: opacity .5s ease-out;
    -o-transition: opacity .5s ease-out;
+   min-height: 66vh;
 }
 
 .crystal:hover {
@@ -38,34 +40,48 @@ h1.subtitle {
 
 .new-horo-h1 {
   font-size: 77px;
-  color: hotpink;
+  color: midnightblue;
   font-weight: bold;
-  font-style: italic;
+  text-align: left;
+  /* font-style: italic; */
   text-align: center;
   line-height: normal;
-  background-color: black;
-
+  font-family: 'Courier New', Courier, monospace;
+  /* background-color: black; */
 }
 
 button {
   background-color: yellow;
   margin: auto;
+  border-radius: 50px;
 }
 
+/* .del-btn {
+  background-image: linear-gradient(to right, #1D2B64 0%, #F8CDDA 51%, #1D2B64 100%)
+} */
+
+/* .del-btn:hover { 
+  background-position: right center; 
+} */
+
 #new-horo-btn {
-  background-color: hotpink;
-  margin: auto;
-  font-weight: bold;
+  background-color: rebeccapurple;
+  font-weight: light;
+  border: solid 3px purple;
+  box-shadow: rebeccapurple 3px;
+  color: ghostwhite;
 }
 
 #new-horo-btn:hover {
-  opacity: .5;
+  opacity: .9;
 }
 
 form {
   font-size: 44px;
   font-weight: bold;
   padding: 33px;
+  background-color: #000;
+  font-family: 'Courier New', Courier, monospace;;
 }
 
 select {
@@ -74,4 +90,147 @@ select {
 
 .tile {
   flex-wrap: wrap
+}
+
+.is-child {
+  border: 1px solid grey;
+}
+
+.is-child:hover {
+  border: 1.5px solid grey;
+}
+
+/* article:hover {
+  opacity: .5;
+} */
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f5f7fa;
+	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	
+	transition: all ease-in-out 0.3s;
+
+	min-height: 100vh;
+	font-family: 'Lato', sans-serif;
+	margin: 0;
+}
+
+body.dark-theme {
+  background-color: #333;
+}
+
+form.dark-theme {
+  background-color: #fff;
+}
+
+.hero-body.dark-theme {
+  background-color: #333;
+}
+
+.new-horo-h1.dark-theme {
+  background-color: #333;
+}
+
+.text-container {
+	max-width: 600px;
+	text-align: center;
+}
+
+h2 {
+	margin-bottom: 0;
+}
+
+h3 {
+	color: #0054B0;
+}
+
+p {
+	letter-spacing: 1px;
+}
+
+body.dark-theme h2, body.dark-theme p {
+	color: #ddd;
+}
+
+body.dark-theme article {
+  background: #444;
+}
+
+.toggle input[type=checkbox] {
+	display: none;
+}
+
+.toggle label {
+	background-color:aqua;
+	border: 2px solid #555;
+	border-radius: 50px;
+	cursor: pointer;
+	display: inline-block;
+  position: fixed;
+  left: 0;
+	transition: all ease-in-out 0.3s;
+	width: 100px;
+  height: 50px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.toggle label::after {
+  
+	background-color: aquamarine;
+	border-radius: 50%;
+	content: ' ';
+	cursor: pointer;
+	display: inline-block;
+	position: absolute;
+	left: 2px;
+	top: 2px;
+	transition: all ease-in-out 0.3s;
+	width: 42px;
+	height: 42px;
+}
+
+.toggle input[type=checkbox]:checked ~ label {
+	background-color: purple;
+  border-color: #222;
+}
+
+.toggle input[type=checkbox]:checked ~ label::after {
+	background-color: blueviolet;
+	transform: translateX(50px);
+}
+
+footer {
+    background-color: #111;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer i {
+    color: red;
+}
+
+footer a {
+    color: #3c97bf;
+    text-decoration: none;
 }

@@ -12,15 +12,20 @@
   </head>
   <body>
 
-    <section class="section">
+      <div class="toggle">
+          <input type="checkbox" id="toggle" />
+          <label for="toggle"></label>
+        </div>
+
+    <section class="section welcome">
     
         <h1 class="title">
           Horacle | Horoscope + Oracle
         </h1>
-        <p class="subtitle">
-          The Horacle Sees All. <strong class="subtitle">Friendly Guidance</strong>!
-        </p>
-      <div style="text-align:center;">
+        <!-- <p class="subtitle">
+          The Horacle Sees All. Friendly Guidance!
+        </p> -->
+      <div style="text-align:center; vertical-align: center;">
       <img src="hand-drawn-romantic-flesh-art-of-a-crystal-ball-in-psychics-hands-with-eye-in-it-vector-illustrati_u-l-q1amcrx0.jpg" class="crystal" alt="Crystal Ball with hands and eye" loading="lazy">
       </div>
     </section>
@@ -30,7 +35,7 @@
 <section class="hero is-primary">
     <div class="hero-body">
         <div style="text-align:center;">
-        <button class="button is-large" id="new-horo-btn">Create Yourself A New Custom Madlib Horoscope!</button>
+        <button class="button is-large" id="new-horo-btn">MAKE A MADLIB HOROSCOPE!</button>
         </div>
         <h2 class="subtitle"></h2>
     </div>
@@ -39,7 +44,9 @@
 
 
   <!-----------------------------columns--------------------->
+  <!-- <div class="horo-api-title">Daily Horoscopes Pulled from Horoscope API</div> -->
   <div class="tile is-ancestor">
+    
     <!-- <div class="column">
       <div class="card">
         <div class="card-content">
@@ -65,5 +72,15 @@
         </footer>
       </div> -->
     </div>
+
+    <footer>
+        <p>
+          Created with <i class="fa fa-heart"></i> by
+          <a target="_blank" href="https://reneecruz.github.io">Renée Cruz</a>
+          - Read how I created this on my Github Repo 
+          <a target="_blank" href="https://www.github.com/reneecruz/">here</a>
+          | Daily Horoscopes data from horoscopes-and-astrology.com API
+        </p>
+      </footer>
 </body>
 </html>

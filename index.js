@@ -17,16 +17,24 @@ let newHoroUl = document.createElement("ul")
 let newHoroLi = document.createElement("li")
 let newHoroSection = document.querySelector("section")
 
+const toggle = document.getElementById('toggle');
+const body = document.body;
 
-// let createLi = document.createElement("li")
-// let createP = document.createElement("p")
-// const classSection = document.querySelector(".section")
+toggle.addEventListener('input', (e) => {
+	const isChecked = e.target.checked;
+	
+	if(isChecked) {
+		body.classList.add('dark-theme');
+	} else {
+		body.classList.remove('dark-theme');
+	}
+});
 
 
 ///////// HELPER METHODS ////////////////////////////////
 
     function handleWord(word, selectTag) {
-      // let divBtn = document.querySelector("button")
+    
       wordOption = document.createElement("option")
       wordOption.setAttribute("value", "word")
       wordOption.innerText = word.word
@@ -47,7 +55,7 @@ let newHoroSection = document.querySelector("section")
       form.dataset.id = id
       submitBtn.innerHTML = `<input type="submit">`
       form.append(submitBtn)
-      // form.append(randomTemplate)
+     
       return heroBody.append(form);
     }
 
@@ -59,15 +67,7 @@ let newHoroSection = document.querySelector("section")
       let verbCount = (quote.match(new RegExp("VERB", 'g')) || []).length;
       let nounCount = (quote.match(new RegExp("NOUN", 'g')) || []).length;
       let adjectiveCount = (quote.match(new RegExp("ADJECTIVE", 'g')) || []).length;
-      //
-      //
-      //
-      //
-      //
-      //
-      //
-      // debugger
-      // let select = ``;
+      
       let uglyReg = w => new RegExp(w, 'g');
       // let count = (quote.match(uglyReg) || []).length;
       // let template = '';
@@ -77,7 +77,8 @@ let newHoroSection = document.querySelector("section")
       // })
       // let tag = `<select>${optionsString}<select>`
       let newQuote = quote
-      console.log(quote);
+      // console.log(quote);
+
       // Verbs
       let verbOptionsString = ""
       data.verbs.forEach(wordObj => {
@@ -87,7 +88,8 @@ let newHoroSection = document.querySelector("section")
       for (let i = 0; i < verbCount; i++) {
         newQuote = newQuote.replace(uglyReg("VERB"), verbTag);
       }
-      // nouns
+
+      // Nouns
       let nounOptionsString = ""
       data.nouns.forEach(wordObj => {
       // nounId = wordObj.id
@@ -97,6 +99,7 @@ let newHoroSection = document.querySelector("section")
       for (let i = 0; i < nounCount; i++) {
         newQuote = newQuote.replace(uglyReg("NOUN"), nounTag);
       }
+
       // Adjectives
       let adjOptionsString = ""
       data.adjectives.forEach(wordObj => {
@@ -119,7 +122,6 @@ let newHoroSection = document.querySelector("section")
 newHoroBtn.addEventListener("click", function(){
   // console.log("Hiii from the button");
   // newHoroBtn.remove()
-
 
   fetch("https://horacle-backend.herokuapp.com/data") 
     .then(res => res.json())
@@ -187,6 +189,8 @@ newHoroBtn.addEventListener("click", function(){
       })
       // console.log(form.innerText)
       // console.log(wordBank);
+
+
 
   // POST FETCH CREATE NEW HOROSCOPE //////////////////////
 
@@ -303,11 +307,15 @@ newHoroBtn.addEventListener("click", function(){
         newerHoroH1.setAttribute("class", "new-horo-h1")
         newerHoroH1.dataset.id = horoscopes[horoscopes.length - 1].id
         heroBody.append(newerHoroH1)
+
         const delButton = document.createElement("button")
-        delButton.innerText = "Delete"
+        delButton.setAttribute('class', 'del-btn');
+        delButton.innerText = "X"
         delButton.dataset.id = horoscopes[horoscopes.length - 1].id
+        
         delButton.addEventListener("click", e => {
           newerHoroH1.remove()
+
           fetch(`https://horacle-backend.herokuapp.com/horoscopes/${delButton.dataset.id}`, {
             method: "DELETE"
           })
