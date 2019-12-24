@@ -12,37 +12,48 @@
   </head>
   <body>
 
+      <h1 class="title">
+        the horacle | freewill astrology 
+      </h1> 
+      
+  
       <div class="toggle">
           <input type="checkbox" id="toggle" />
           <label for="toggle"></label>
         </div>
-
-    <section class="section welcome">
     
-        <h1 class="title">
-          Horacle | Horoscope + Oracle
-        </h1>
-        <!-- <p class="subtitle">
-          The Horacle Sees All. Friendly Guidance!
-        </p> -->
-      <div style="text-align:center; vertical-align: center;">
+      
+      <div class="img-cont" style="text-align:center; vertical-align: center;">
       <img src="hand-drawn-romantic-flesh-art-of-a-crystal-ball-in-psychics-hands-with-eye-in-it-vector-illustrati_u-l-q1amcrx0.jpg" class="crystal" alt="Crystal Ball with hands and eye" loading="lazy">
+      <!-- <img src="https://media.giphy.com/media/dz76Ie0a8hL7TYBuyK/giphy.gif" /> -->
       </div>
-    </section>
+
+      <div style="text-align:center;">
+          <button class="button is-large" id="new-horo-btn">MAKE A MADLIB HOROSCOPE!</button>
+      </div>
+    
 
 <!----------------------hero---------------------->
 
-<section class="hero is-primary">
+
+
+<!-- <section class="hero is-primary"> -->
     <div class="hero-body">
-        <div style="text-align:center;">
-        <button class="button is-large" id="new-horo-btn">MAKE A MADLIB HOROSCOPE!</button>
-        </div>
-        <h2 class="subtitle"></h2>
+      
     </div>
-</section>
+<!-- </section> -->
 
 
+<div class="date-div">
+<h2>Daily Horoscope for Today</h2>
 
+<p id="date"></p>
+
+<script>
+var d = new Date();
+document.getElementById("date").innerHTML = d;
+</script>
+</div>
   <!-----------------------------columns--------------------->
   <!-- <div class="horo-api-title">Daily Horoscopes Pulled from Horoscope API</div> -->
   <div class="tile is-ancestor">
@@ -72,6 +83,8 @@
         </footer>
       </div> -->
     </div>
+
+          <img src="https://media.giphy.com/media/mJlDXcgHjzbGavbQmp/giphy.gif" />
 
     <footer>
         <p>

@@ -53,10 +53,11 @@ toggle.addEventListener('input', (e) => {
     function formHandler(randomTemplate, id) {
       let submitBtn = document.createElement("submit")
       form.dataset.id = id
-      submitBtn.innerHTML = `<input type="submit">`
+      submitBtn.innerHTML = `<input class="submit-btn" type="submit">`
+    
       form.append(submitBtn)
      
-      return heroBody.append(form);
+      return heroBody.prepend(form);
     }
 
 
@@ -81,31 +82,40 @@ toggle.addEventListener('input', (e) => {
 
       // Verbs
       let verbOptionsString = ""
+
       data.verbs.forEach(wordObj => {
         verbOptionsString += `<option data-id=${wordObj.id}>${wordObj.word}</option>`
       })
-      let verbTag = `<select name="verb">${verbOptionsString}<select>`
+
+      let verbTag = `<label for="verb">Verb</label> <select name="verb">${verbOptionsString}<select>`
+
       for (let i = 0; i < verbCount; i++) {
         newQuote = newQuote.replace(uglyReg("VERB"), verbTag);
       }
 
       // Nouns
       let nounOptionsString = ""
+
       data.nouns.forEach(wordObj => {
       // nounId = wordObj.id
         nounOptionsString += `<option data-id=${wordObj.id}>${wordObj.word}</option>`
       })
-      let nounTag = `<select name="noun">${nounOptionsString}<select>`
+
+      let nounTag = `<label for="noun">Noun</label><select name="noun">${nounOptionsString}<select>`
+
       for (let i = 0; i < nounCount; i++) {
         newQuote = newQuote.replace(uglyReg("NOUN"), nounTag);
       }
 
       // Adjectives
       let adjOptionsString = ""
+
       data.adjectives.forEach(wordObj => {
         adjOptionsString += `<option data-id=${wordObj.id}>${wordObj.word}</option>`
       })
-      let adjTag = `<select name="adjective">${adjOptionsString}<select>`
+
+      let adjTag = `<label for="adjective">Adjective</label> <select name="adjective">${adjOptionsString}<select>`
+
       for (let i = 0; i < adjectiveCount; i++) {
         newQuote = newQuote.replace(uglyReg("ADJECTIVE"), adjTag);
       }
@@ -138,6 +148,7 @@ newHoroBtn.addEventListener("click", function(){
         //   quote = random_item(data.template).content
         //   console.log(replaceText(quote, "ADJECTIVE", data.adjectives, selectTagAdj));
         // });
+
         let template = random_item(data.template)
         let quote = template.content
         let templateId = template.id
@@ -221,14 +232,14 @@ newHoroBtn.addEventListener("click", function(){
       const reverseButton = document.createElement("button")
       reverseButton.innerText = "Reverse"
       console.log(reverseButton);
-      delButton.innerText = "Delete"
+      delButton.innerText = "X"
       delButton.addEventListener("click", e => {
         newerHoroH1.remove()
 
         fetch(`https://horacle-backend.herokuapp.com/horoscopes/${obj_new_horo.id}`, {method: "DELETE"})
         delButton.remove()
       })
-      heroBody.append(reverseButton)
+      // heroBody.append(reverseButton)
 
       reverseButton.addEventListener("click", e => {
         console.log(event.target.dataset.id);
@@ -253,12 +264,13 @@ newHoroBtn.addEventListener("click", function(){
           revStringDiv.append(revStringP)
 
           heroBody.append(revStringDiv)
+          heroBody.append(delButton)
         })
 
       })
       heroBody.append(delButton)
     })
-// }
+})
 
 
 // DELETE REQUEST FETCH ////////////////////////////////
@@ -270,56 +282,58 @@ newHoroBtn.addEventListener("click", function(){
 //       return res
 //     })
 
-})
+// })
   // INITIAL FETCH TO EXTERNAL API ///////////////////////
 
     fetch("https://www.horoscopes-and-astrology.com/json")
       .then(res => res.json())
       .then(data => {
-          for (const prop in data) {
           // console.log(`data.${prop} = ${data[prop]}`);
           // console.log(data.dates);
           // console.log(data.dailyhoroscope)
             data.titles.forEach(title => {
-            // console.log(data.dates[title]);
+            console.log(data.dates[title]);
             newHoro = divClassTile.innerHTML += `
-              <div class="tile is-parent is-4 is-vertical">
+              <div class="tile is-parent is-6 is-vertical">
               <article class="tile is-child box">
                   <p class="title">${title}</p>
                   <p class="subtitle">${data.dates[title]}</p>
                   <div class="content">
                   <p>${data.dailyhoroscope[title]}</p>
                   </div>
+
               </article>
+
             </div>
               `
           });
-        }
     });
 
-    fetch("https://horacle-backend.herokuapp.com/horoscopes")
-      .then(response => response.json())
-      .then(horoscopes => {
-        // debugger
-        const newHoroText = horoscopes[horoscopes.length - 1].text
-        const newerHoroH1 = document.createElement("h1")
-        newerHoroH1.innerText = newHoroText
-        newerHoroH1.setAttribute("class", "new-horo-h1")
-        newerHoroH1.dataset.id = horoscopes[horoscopes.length - 1].id
-        heroBody.append(newerHoroH1)
+    // fetch("https://horacle-backend.herokuapp.com/horoscopes")
+    //   .then(response => response.json())
+    //   .then(horoscopes => {
+    //     // debugger
+    //     const newHoroText = horoscopes[horoscopes.length - 1].text
+    //     const newerHoroH1 = document.createElement("h1")
+    //     newerHoroH1.innerText = newHoroText
+    //     newerHoroH1.setAttribute("class", "new-horo-h1")
+    //     newerHoroH1.dataset.id = horoscopes[horoscopes.length - 1].id
+    //     heroBody.append(newerHoroH1)
 
-        const delButton = document.createElement("button")
-        delButton.setAttribute('class', 'del-btn');
-        delButton.innerText = "X"
-        delButton.dataset.id = horoscopes[horoscopes.length - 1].id
+    //     const delButton = document.createElement("button")
+    //     delButton.setAttribute('class', 'del-btn');
+    //     delButton.innerText = "X"
+    //     delButton.dataset.id = horoscopes[horoscopes.length - 1].id
         
-        delButton.addEventListener("click", e => {
-          newerHoroH1.remove()
+    //     delButton.addEventListener("click", e => {
+    //       newerHoroH1.remove()
+    //       revStringDiv.remove()
 
-          fetch(`https://horacle-backend.herokuapp.com/horoscopes/${delButton.dataset.id}`, {
-            method: "DELETE"
-          })
-          delButton.remove()
-        })
-        heroBody.append(delButton)
-      })
+    //       fetch(`https://horacle-backend.herokuapp.com/horoscopes/${delButton.dataset.id}`, {
+    //         method: "DELETE"
+    //       })
+    //       delButton.remove()
+    //       reverseButton.remove()
+    //     })
+    //     heroBody.append(delButton)
+      // });

@@ -1,24 +1,45 @@
 
-.hero-body {
-background-color: whitesmoke;
-}
+/* .hero-body {
+background-color: #fff;
 
-
-/* .section {
-  background-color: black;
 } */
 
-.welcome {
-  min-height: 100vh;
+.date-div h2 {
+  font-size: 44px;
+  font-display: bold;
+  /* background-color: chartreuse; */
+  min-width: 100vw;
+  text-align: left;
+  font-family: 'Verdana';
+  padding-left: 20px;
+  line-height: 3rem;
+}
+
+#date {
+  font-size: 33px;
+  text-align: left;
+  padding-left: 20px;
 }
 
 h1.title {
   font-size: 44px;
-  color: hotpink;
+  color: purple;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  text-transform: lowercase;
 }
 
 h1.subtitle {
   color: #D3D3D3;
+}
+
+.img-cont {
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .crystal {
@@ -30,7 +51,9 @@ h1.subtitle {
    -moz-transition: opacity .5s ease-out;
    -webkit-transition: opacity .5s ease-out;
    -o-transition: opacity .5s ease-out;
-   min-height: 66vh;
+   min-height: 33vh;
+   align-self: center;
+   
 }
 
 .crystal:hover {
@@ -43,33 +66,75 @@ h1.subtitle {
   color: midnightblue;
   font-weight: bold;
   text-align: left;
-  /* font-style: italic; */
-  text-align: center;
+  text-align: left;
   line-height: normal;
   font-family: 'Courier New', Courier, monospace;
-  /* background-color: black; */
+  border: navy solid 5px;
+  padding: 33px;
+  background-color: #fff;
+}
+
+label {
+  color: chartreuse;
 }
 
 button {
-  background-color: yellow;
-  margin: auto;
-  border-radius: 50px;
+cursor: pointer;
+color: #333;
+border: 2px solid #333;
+border-radius: 30px;
+/* background: ; */
+font-size: 22px;
+font-weight: bold;
+display: inline-block;
+line-height: 0px;
+padding: 11px 3px;
 }
 
+button:hover {
+  background: red;
+  border: solid white 2px;
+  color: white;
+}
+
+.submit-btn {
+  margin: auto;
+  border: solid #333 3px;
+  font-size: large;
+  position: relative;
+  right: 0;
+  text-transform: uppercase;
+  color: #333;
+  padding: 11px;
+  font-weight: bold;
+  font-family: 'Verdana';
+}
+
+.submit-btn:hover {
+  background-color: chartreuse;
+  color: #333;
+  border: solid #333 3px;
+}
 /* .del-btn {
   background-image: linear-gradient(to right, #1D2B64 0%, #F8CDDA 51%, #1D2B64 100%)
-} */
+} */ 
 
 /* .del-btn:hover { 
   background-position: right center; 
 } */
 
+.is-ancestor {
+  padding: 20px;
+} 
+
 #new-horo-btn {
+  /* justify-content: center; */
   background-color: rebeccapurple;
   font-weight: light;
   border: solid 3px purple;
   box-shadow: rebeccapurple 3px;
   color: ghostwhite;
+  font-family: 'Verdana';
 }
 
 #new-horo-btn:hover {
@@ -80,8 +145,12 @@ form {
   font-size: 44px;
   font-weight: bold;
   padding: 33px;
-  background-color: #000;
-  font-family: 'Courier New', Courier, monospace;;
+  background-color: white;
+  color: black;
+  border: solid black 3px;
+  font-family: 'Courier New', Courier, monospace;
+  color: transparent;
+  text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 22px; 
 }
 
 select {
@@ -100,9 +169,6 @@ select {
   border: 1.5px solid grey;
 }
 
-/* article:hover {
-  opacity: .5;
-} */
 
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
@@ -111,7 +177,7 @@ select {
 }
 
 body {
-	background-color: #f5f7fa;
+	background-color: #fff;
 	
 	display: flex;
 	align-items: center;
@@ -126,19 +192,19 @@ body {
 }
 
 body.dark-theme {
-  background-color: #333;
+  background-color: #000;
 }
 
-form.dark-theme {
-  background-color: #fff;
+body.dark-theme.hero-body {
+  background-color: #000;
 }
 
-.hero-body.dark-theme {
-  background-color: #333;
-}
-
-.new-horo-h1.dark-theme {
-  background-color: #333;
+body.dark-theme form {
+  background-color: grey;
+  color: white;
+  border: solid #333 3px;
+  color: transparent;
+  text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 18px; 
 }
 
 .text-container {
@@ -159,11 +225,12 @@ p {
 }
 
 body.dark-theme h2, body.dark-theme p {
-	color: #ddd;
+  color: #ddd;
+  /* color: #333; */
 }
 
 body.dark-theme article {
-  background: #444;
+  background: #000;
 }
 
 .toggle input[type=checkbox] {
@@ -177,7 +244,7 @@ body.dark-theme article {
 	cursor: pointer;
 	display: inline-block;
   position: fixed;
-  left: 0;
+  right: 0;
 	transition: all ease-in-out 0.3s;
 	width: 100px;
   height: 50px;
@@ -226,7 +293,7 @@ footer p {
     margin: 10px 0;
 }
 
-footer i {
+.fa-heart {
     color: red;
 }
 
