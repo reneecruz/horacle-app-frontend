@@ -174,6 +174,7 @@ newHoroBtn.addEventListener("click", function(){
 
   form.addEventListener('submit', event => {
       event.preventDefault();
+      
 
       let templateId = form.dataset.id
       let wordBank = [];
@@ -197,6 +198,8 @@ newHoroBtn.addEventListener("click", function(){
 
         form.replaceChild(spanTag, d)
         wordBank.push( {[d.name]: d.value });
+        // optimistic render to remove form before post async
+        form.remove()
       })
       // console.log(form.innerText)
       // console.log(wordBank);
@@ -220,8 +223,8 @@ newHoroBtn.addEventListener("click", function(){
     .then(res => res.json())
     .then((obj_new_horo) => {
       form.remove()
-      console.log(obj_new_horo);
-      console.log(obj_new_horo.text);
+      // console.log(obj_new_horo);
+      // console.log(obj_new_horo.text);
 
       const newHoroText = obj_new_horo.text
       const newerHoroH1 = document.createElement("h1")
