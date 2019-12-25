@@ -281,7 +281,7 @@ body.dark-theme.title h1, body.dark-theme.date-div h2 {
 
 body.dark-theme p {
   /* color: #ddd; */
-  color: #333;
+  color: grey;
 }
 
 body.dark-theme article {
