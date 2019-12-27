@@ -43,5 +43,8 @@ And if you're in the mood for a more traditional Astrology Daily Horoscope, scro
 
 * **Bulma CSS Framework** for tiles 
 
+<a target="_blank" href="https://ctt.ac/jCe71"><img src="http://clicktotweet.com/img/tweet-graphic-trans.png" alt="Tweet: Madlibs Astrology is freewill meets the Oracle!  Today the Horacle told me ...
+https://ctt.ac/jCe71+
+#horacle #madlibsastrology #madlibshoroscope https://ctt.ac/jCe71+" /></a>
 
 
