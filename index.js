@@ -230,7 +230,7 @@ newHoroBtn.addEventListener("click", function(){
       const newerHoroH1 = document.createElement("h1")
       newerHoroH1.innerText = newHoroText
       newerHoroH1.setAttribute("class", "new-horo-h1")
-      heroBody.append(newerHoroH1)
+      heroBody.prepend(newerHoroH1)
       const delButton = document.createElement("button")
       const reverseButton = document.createElement("button")
       reverseButton.innerText = "Reverse"
