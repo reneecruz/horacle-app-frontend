@@ -383,5 +383,6 @@ footer a {
   body {
     width: 100%;
     font-size: small;
+    overflow: contain;
   }
 }
