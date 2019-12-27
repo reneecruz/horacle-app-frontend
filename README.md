@@ -2,29 +2,34 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/580e6c9a-d61e-4038-89b3-097a51c23d34/deploy-status)](https://app.netlify.com/sites/horacle/deploys)
 
-# https://horacle.netlify.com/  | Visit live site!
+# The Horacle | Madlibs Horoscopes Live on the Interwebs:
+# https://horacle.netlify.com/ 
 
 # Demo 
 
 # Toggle 
-
 ![](horacle_toggle.gif)
 
 # Light Mode 
-
-
 ![](horacle_lightmode.gif)
 
 # Dark Mode 
-
-
 ![](horacle_darkmode.gif)
 
-# Madlibs Dark Mode
+# Random Madlibs Generator, Dark Mode
+![](horacle_madlibs_dark.gif
+
+# Javascript Frontend 
+
+# Ruby on Rails API Backend for Madlibs Oracle Generator & Free-Will Word Selector
+
+# Additional External API to Astrology + Horoscope Data, pulled daily 
+
+# HTML 
+
+# CSS 
+
+# Bulma CSS for tiles 
 
 
-![](horacle_madlibs_dark.gif)
 
-# Random Mablibs Generator, Delete, Dark Mode 
-
-![](horacle_mablibs_dark_delete.gif)
