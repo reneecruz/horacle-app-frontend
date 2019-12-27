@@ -16,7 +16,12 @@
 
 ![](horacle_darkmode.gif)
 
-# Madlibs! Dark Mode
+# Madlibs Dark Mode
 
 
 ![](horacle_madlibs_dark.gif)
+
+# Random Mablibs Generator, Delete, Dark Mode 
+
+
+![](horacle_mablibs_delete_dark.gif)
