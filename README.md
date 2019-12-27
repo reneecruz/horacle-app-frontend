@@ -8,16 +8,10 @@ Live on the Interwebs:  https://horacle.netlify.com/
 ## What's The Horacle? 
 
 The Horacle** is your friendly horoscope oracle guide for daily advice that you can co-create! Upon your request, The Horacle 
-
 magically generates a random Mablib that's just for you.  Then, you get to use your free will to choose which noun, verb and 
+adjective to fit into your future and create your very own prediction, Mad Libs style!  The Horacle horoscope oracle is free will meets astrology fun! 
 
-adjective to fit into your future and create your very own prediction, Mad Libs style! The Horacle horoscope oracle is free 
-
-will meets astrology fun! And if you're in the mood for a more traditional Astrology Daily Horoscope, scroll down to find a 
-
-daily horoscope for your Sun Sign using data from Astrology and Horoscope API.  Make it a great day with some fun, irreverent 
-
-and (probably!) gramatically incorrect guidance from your friend, The Horacle!
+And if you're in the mood for a more traditional Astrology Daily Horoscope, scroll down to find a daily horoscope for your Sun Sign using data from Astrology and Horoscope API.  Make it a great day with some fun, irreverent and (probably!) gramatically incorrect guidance from your friend, The Horacle!
 
 ## Demo 
 
