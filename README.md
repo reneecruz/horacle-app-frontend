@@ -15,3 +15,8 @@
 
 
 ![](horacle_darkmode.gif)
+
+# Madlibs! Dark Mode
+
+
+![](horacle_madlibs_dark.gif)
