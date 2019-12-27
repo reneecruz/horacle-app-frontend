@@ -23,5 +23,4 @@
 
 # Random Mablibs Generator, Delete, Dark Mode 
 
-
 ![](horacle_mablibs_dark_delete.gif)
