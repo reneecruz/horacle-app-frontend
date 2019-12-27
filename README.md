@@ -8,28 +8,33 @@
 # Demo 
 
 # Toggle 
+
 ![](horacle_toggle.gif)
 
 # Light Mode 
+
 ![](horacle_lightmode.gif)
 
 # Dark Mode 
+
 ![](horacle_darkmode.gif)
 
 # Random Madlibs Generator, Dark Mode
-![](horacle_madlibs_dark.gif
 
-# Javascript Frontend 
+![](horacle_madlibs_dark.gif)
 
-# Ruby on Rails API Backend for Madlibs Oracle Generator & Free-Will Word Selector
 
-# Additional External API to Astrology + Horoscope Data, pulled daily 
+#Javascript Frontend 
 
-# HTML 
+#Ruby on Rails API Backend for Madlibs Oracle Generator & Free-Will Word Selector
 
-# CSS 
+#Additional External API to Astrology + Horoscope Data, pulled daily 
 
-# Bulma CSS for tiles 
+#HTML 
+
+#CSS 
+
+#Bulma CSS for tiles 
 
 
 
