@@ -1,7 +1,7 @@
 # horacle-app-frontend
 
-Demo 
+# Demo 
 
-Toggle to Dark Mode 
+# Toggle to Dark Mode 
 
 ![](horacle_toggle.gif)
