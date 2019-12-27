@@ -385,4 +385,8 @@ footer a {
     font-size: small;
     overflow: contain;
   }
+
+  .new-horo-h1 {
+    font-size: 22px;
+  }
 }
