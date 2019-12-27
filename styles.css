@@ -116,6 +116,7 @@ h1.subtitle {
   border: navy solid 5px;
   padding: 33px;
   background-color: #fff;
+  overflow: contain;
 
   color: midnightblue;
   text-shadow:
