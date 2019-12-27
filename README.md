@@ -2,6 +2,11 @@
 
 # Demo 
 
-# Toggle to Dark Mode 
+# Toggle 
 
 ![](horacle_toggle.gif)
+
+# Dark Mode 
+
+
+![](horacle_darkmode.gif)
