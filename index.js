@@ -230,6 +230,9 @@ newHoroBtn.addEventListener("click", function(){
       const newerHoroH1 = document.createElement("h1")
       newerHoroH1.innerText = newHoroText
       newerHoroH1.setAttribute("class", "new-horo-h1")
+      newerHoroH1.innerHTML += ` <a target="_blank" href="https://ctt.ac/jCe71"><img src="http://clicktotweet.com/img/tweet-graphic-trans.png" alt="Tweet: Madlibs Astrology is freewill meets the Oracle!  Today the Horacle told me ...
+      https://ctt.ac/jCe71+
+      #horacle #madlibsastrology #madlibshoroscope https://ctt.ac/jCe71+" /></a>`
       heroBody.prepend(newerHoroH1)
       const delButton = document.createElement("button")
       const reverseButton = document.createElement("button")
