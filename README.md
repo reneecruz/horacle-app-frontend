@@ -6,6 +6,11 @@
 
 ![](horacle_toggle.gif)
 
+# Light Mode 
+
+
+![](horacle_lightmode.gif)
+
 # Dark Mode 
 
 
