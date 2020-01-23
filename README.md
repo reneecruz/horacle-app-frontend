@@ -5,7 +5,7 @@
 # **The Horacle** | **Madlibs Horoscopes**
 Live on the Interwebs:  https://horacle.netlify.com/ 
 
-## Demo Video Web App Walk-Through: https://youtu.be/c08Gb9X560E
+Demo Video Web App Walk-Through: https://youtu.be/c08Gb9X560E
 
 ## What on Earth is **The Horacle**? 
 
@@ -36,6 +36,7 @@ And if you're in the mood for a more traditional Astrology Daily Horoscope, scro
 
 * **Ruby on Rails API** Backend for Madlibs Oracle Generator & Free-Will Word Selector
     * here's the backend repo: https://github.com/reneecruz/horacle-app-backend
+    * deployed on Heroku
 
 * Additional **External API to Astrology + Horoscope Data**, pulled daily 
 
