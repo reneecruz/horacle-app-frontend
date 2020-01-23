@@ -5,6 +5,8 @@
 # **The Horacle** | **Madlibs Horoscopes**
 Live on the Interwebs:  https://horacle.netlify.com/ 
 
+# Demo Video: https://youtu.be/c08Gb9X560E
+
 ## What on Earth is **The Horacle**? 
 
 **The Horacle** is your friendly, interactive horoscope oracle guide for daily advice that you co-create! Upon your request, **The Horacle** magically generates a random Mablib that's just for you.  Then, you get to use your free will to choose which noun, verb and adjective to fit into your future and create your very own prediction, Mad Libs style!  **The Horacle** horoscope oracle is your own free will meets astrological fun! 
